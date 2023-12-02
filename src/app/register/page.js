@@ -93,11 +93,7 @@ export default function Register(){
 
         setImagePopUp('loading')
         setIsShow(true)
-        setIsSuccess({message: 'Loading...'})
-
-        console.log(inputValueUsername)
-        console.log(inputValueMail)
-        console.log(inputValuePassword)
+        setIsSuccess({message: 'Loading...'})        
 
         const formData = new FormData()
         formData.append('username', inputValueUsername)
@@ -105,7 +101,7 @@ export default function Register(){
         formData.append('password', inputValuePassword)
 
         try{
-            const response = await fetch('/api/user/register', {
+            const response = await fetch('/test', {
                 method: 'POST',
                 // headers: {
                 //     'Content-Type': 'application/json'

@@ -10,12 +10,15 @@ app.prepare().then(() => {
   const server = express();  
 
   // Custom Express routes
-  server.get('/test', (req, res) => {
-    res.send('Hello')
+  server.post('/test', (req, res) => {
+    res.status(200).json({
+        mesage: "Data send!",
+        data: req.body
+    })
   });
 
 //   Handle Next.js routes
-  server.all('/', (req, res) => {    
+  server.all('*', (req, res) => {    
     return handle(req, res);
   });
 
