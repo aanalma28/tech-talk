@@ -1,0 +1,36 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato&family=Open+Sans&family=Roboto&display=swap');
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Lato', sans-serif;
+  list-style: none;
+  text-decoration: none;
+}
+
+/* body{
+  background-color: var(--color4);
+} */
+
+:root{
+  /* --maincolor: #FF5F5F; */
+  --maincolor: #4600a8;
+  --hovermain: #3b008d;
+  /* --maincolor: #27005D; */
+  /* --maincolor: #4D2DB7; */
+  /* --maincolor: #C70039;
+  --maincolor: #F49D1A; */
+  --color2: #ffff;
+  --color3: black;
+  --color4: #181818;
+  --color5: #393E46;
+  --yellow: #a89929;
+  --blue: #437291;
+  --green: #038559;
+  --alert: #f44c53;
+  --hoveralert: #d34247;
+  --success: #3cdc7c;
+  --hoversuccess: #33b969;
+  --shadecolor: rgb(216, 216, 216);
+}

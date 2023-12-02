@@ -1,0 +1,50 @@
+.bottomBarWrapper{
+    display: none;
+}
+
+@media screen and (max-width: 1000px){
+    .bottomBarWrapper{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        bottom: 0;
+        position: fixed;
+        background-color: var(--color2);
+    }
+
+    .bottomBar{
+        width: 100%;
+        margin: 5px;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+        gap: 10px;
+        height: 70px;
+        border-radius: 10px;
+        background-color: var(--maincolor);
+    }
+
+    .bottomBar li img{
+        border-radius: 50px;
+    }
+
+    .bottomBar li{
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    .divIconBottom{
+        display: flex;
+        justify-content: center;
+        padding: 8px;
+        border-radius: 50px;
+    }
+
+    .divIconBottom svg{
+        width: 30px;
+        fill: var(--color2);
+    }
+
+}

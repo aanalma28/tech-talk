@@ -1,0 +1,379 @@
+.containerDashboard{
+    min-height: 43rem;
+    overflow-y: hidden;
+    display: flex;
+    /* grid-template-columns: 0.3fr 1fr; */
+}
+
+
+/* sidebar start */
+.sidebar{
+    position: fixed;
+    background-color: var(--maincolor);
+    min-height: 41.3rem;
+    margin: 15px 0 15px 5px;
+    border-radius: 10px;
+    width: 20%;
+    transition: all 0.2s ease;
+}
+
+.profileImage{
+    border-radius: 10%;
+}
+
+.dividerSidebar{
+    height: 2px;
+    width: 80%;
+    margin: 20px;
+}
+
+.containerSidebar{
+    display: block;
+}
+
+.ulSidebar li{
+    margin: 10px 0 10px 5px;
+}
+
+.ulSidebar li a{
+    display: grid;
+    grid-template-columns: 0.2fr 1fr;
+    padding: 0px 0 0px 35px;
+    height: 3rem;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+    transition: all 0.3s;
+    background: linear-gradient(var(--color2), var(--color2)) no-repeat;
+    background-size: 0;
+    background-position: 100%;
+}
+
+.profileSidebar{
+    display: grid;
+    grid-template-columns: 0.4fr 1fr;
+    margin: 10px 0 10px 5px;
+    padding: 10px 0 10px 20px;
+}
+
+.profileSidebar h3{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--color2);
+}
+
+
+/* .ulSidebar li a:hover p{
+    color: var(--maincolor);
+}
+
+.ulSidebar li a:hover svg{
+    fill: var(--maincolor)
+} */
+
+.ulSidebar li p{
+    display: flex;
+    align-items: center;
+    color: var(--color2);
+    font-weight: bold;
+    font-size: 1em;
+}
+
+.divsvgIcon{
+    display: flex;
+    align-items: center;
+    width: 26px;
+}
+
+.divsvgIcon svg{
+    fill: var(--color2);
+    transition: fill 0.3s;
+}
+/* sidebar stop */
+
+
+/* main wrapper start */
+.mainWrapper{
+    margin-left: 21%;
+    transition: all 0.2s ease;
+    width: 100%;
+}
+
+/* main wrapper end */
+
+
+/* top bar */
+.topBar{
+    width: 100%;
+    position: fixed;
+    background-color: var(--color2);
+}
+
+.topBarWrapper{
+    height: 50px;
+    width: 78%;
+    margin: 15px 20px;
+    display: grid;
+    grid-template-columns: 0.1fr 1fr 0.1fr;
+    transition: all 0.2s ease;
+}
+
+.topBarNoSearch{
+    display: flex;
+    justify-content: space-between;
+}
+
+.btnSidebar{
+    display: grid;
+    grid-template-rows: repeat(1fr);
+    width: 50px;
+    height: 50px;
+    border: 2px solid var(--shadecolor);
+    border-radius: 10px;
+    padding: 5px;
+    cursor: pointer;
+}
+
+.burgerBar{
+    border-radius: 5px;
+    margin-top: 4px;
+    display: flex;
+    background-color: var(--maincolor);
+    height: 3px;
+    transition: all 0.2s;
+}
+
+.search{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.search input{
+    width: 100%;
+    padding: 10px;
+    border-radius: 50px;
+    border: none;
+    outline: 2px solid var(--shadecolor);
+    background-color: var(--color2);
+}
+
+.search input:focus{
+    outline: 2px solid var(--maincolor);
+}
+
+.dotWrapper{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    cursor: pointer;
+}
+
+.dotSpan{
+    margin: 0 3px;
+    width: 7px;
+    height: 7px;
+    background-color: var(--maincolor);
+    border-radius: 50px;
+}
+
+/* pop up logout start */
+.logoutPopUp{
+    position: fixed;
+    border: 1px solid var(--shadecolor);
+    right: 50px;
+    transform: translate(30px, -50px);
+    opacity: 0;
+    z-index: -1;
+    background-color: var(--color2);
+    width: 150px;
+    border-radius: 10px;
+    transition: all 0.2s ease;
+}
+
+.logoutPopUp ul{
+    display: block;
+}
+
+.logoutPopUp ul li a{
+    margin: 10px 0;
+    display: grid;
+    grid-template-columns: 0.5fr 1fr;
+    color: var(--maincolor);
+    padding: 0 20px;
+}
+
+.logoutPopUp ul li a p{
+    display: flex;
+    align-items: center;
+}
+
+.profileIcon{
+    margin: 0 5px;
+}
+
+.profileIcon svg{
+    fill: var(--maincolor);
+    stroke: var(--maincolor);
+}
+
+.logoutIcon{
+    width: 1.4rem;
+    margin: 0 5px;
+}
+
+.logoutIcon svg path{
+    stroke: var(--maincolor);
+}
+
+/* pop up logout stop */
+/* top bar end */
+
+
+/* main content */
+.mainContent{
+    margin: 100px 20px 20px 20px;
+}
+
+.mainContent h3{
+    font-size: 30px;
+}
+
+.mainContent h3 span{
+    color: var(--maincolor);
+}
+
+/* main content end */
+
+/* dashboard content start */
+.mainContentWrapper{
+    margin: 20px 0;
+}
+
+.mainContentWrapper h5{
+    font-size: 20px;
+}
+
+.mainContentWrapper p{
+    margin: 10px 0;
+}
+
+.statusWrapper{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 10px;
+}
+
+/* .statusWrapper path{
+    stroke: var(--color2);
+} */
+
+.statusCard{
+    display: grid;
+    grid-template-columns: 1fr 0.3fr;
+    border-radius: 10px;
+    padding: 20px 30px;
+}
+
+.statusCard h3{
+    display: block;
+    align-items: center;
+    font-size: 1.3rem;
+}
+
+.statusCard h3 p{
+    margin: 10px 0;
+    font-size: 1.7rem;
+    font-weight: lighter;
+}
+
+.starDashboard{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 5rem;
+    height: 5rem;
+    background: var(--yellow);
+    border-radius: 50px;
+}
+
+.starDashboard svg{
+    width: 3.5rem;
+}
+
+.commentsDashboard{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 5rem;
+    height: 5rem;
+    background: var(--green);
+    border-radius: 50px;
+}
+
+.commentsDashboard svg{
+    width: 4rem;
+}
+
+.shareDashboard{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 5rem;
+    height: 5rem;
+    background: var(--blue);
+    border-radius: 50px;
+}
+
+.shareDashboard svg{
+    width: 2.5rem;
+}
+
+/* dashboard content end */
+
+
+/* responsive */
+@media screen and (max-width: 1000px){
+    .btnSidebar{
+        display: none;
+    }
+
+    .sidebar{
+        display: none;
+    }
+
+    .mainWrapper{
+        margin-left: 0;
+    }
+
+    .topBarWrapper{
+        width: 96%;
+        grid-template-columns: 1fr 0.1fr;
+    }
+}
+
+@media screen and (max-width: 870px){
+    .statusCard h3{
+        font-size: 1.1rem;
+    }
+
+    .statusCard h3 p{
+        font-size: 1.5rem;
+    }
+
+    .starDashboard, .commentsDashboard, .shareDashboard{
+        width: 4rem;
+        height: 4rem;
+    }
+}
+
+@media screen and (max-width: 500px){
+    .topBarWrapper{
+        width: 90%;
+        grid-template-columns: 1fr 0.2fr;
+    }
+
+    
+}
