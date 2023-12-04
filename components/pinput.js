@@ -4,15 +4,15 @@ export default function Pinput({name, status}){
     const paragraph = [
         {
             id: "username",
-            p: <p className={!status ? style.pTrue : style.pFalse}>Input Username</p>
+            p: <p id="paragraph" className={!status ? style.pTrue : style.pFalse}>Input Username</p>
         },
         {
             id: "password",
-            p: <p className={!status ? style.pTrue : style.pFalse}>Input Password</p>
+            p: <p id="paragraph" className={!status ? style.pTrue : style.pFalse}>Input Password</p>
         },
         {
             id: "mail",
-            p: <p className={!status ? style.pTrue : style.pFalse}>Input Email</p>
+            p: <p id="paragraph" className={!status ? style.pTrue : style.pFalse}>Input Email</p>
         }
     ]
     

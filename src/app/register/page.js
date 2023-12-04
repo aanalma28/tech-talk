@@ -17,7 +17,7 @@ export default function Register(){
 
     const [clickUsername, isClickUsername] = useState(true)
     const [clickPassword, isClickPassword] = useState(true)
-    const [clickMail, isClickMail] = useState(true)
+    const [clickMail, isClickMail] = useState(true)    
 
     const isInputValueUsername = Boolean(inputValueUsername)
     const isInputValuePassword = Boolean(inputValuePassword)
@@ -29,16 +29,17 @@ export default function Register(){
 
     useEffect(() => {
         const popup = document.getElementById('popup')
-        const formWrapper = document.getElementById('form-wrapper')
+        const formWrapper = document.getElementById('form-wrapper')        
         if(isShow){
             popup.style.display = 'flex'
             formWrapper.style.opacity = '0.5'
             formWrapper.style.backgroundColor = 'rgb(216, 216, 216)'
+            
         }
         else{
             popup.style.display = 'none'
             formWrapper.style.opacity = '1'
-            formWrapper.style.backgroundColor = '#ffff'
+            formWrapper.style.backgroundColor = '#ffff'            
         }
     })
 
@@ -57,7 +58,7 @@ export default function Register(){
     }
 
     // handle click
-    const handleClickUsername = () => {
+    const handleClickUsername = () => {        
         if(isInputValueUsername){
             isClickUsername(false)
         }
@@ -95,18 +96,19 @@ export default function Register(){
         setIsShow(true)
         setIsSuccess({message: 'Loading...'})        
 
-        const formData = new FormData()
-        formData.append('username', inputValueUsername)
-        formData.append('email', inputValueMail)
-        formData.append('password', inputValuePassword)
+        const data = {
+            username : inputValueUsername,
+            password : inputValuePassword,
+            email : inputValueMail
+        }
 
         try{
             const response = await fetch('/test', {
                 method: 'POST',
-                // headers: {
-                //     'Content-Type': 'application/json'
-                // },
-                body: formData
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(data)
             })
             const json = await response.json()
             console.log(json)
@@ -145,7 +147,7 @@ export default function Register(){
                     <h3 className={style.titleLogin}><span>First</span>, Please Fill Form Below</h3>
                     <p className={style.textLogin}>We recommend using <b>github account</b> to sign in.</p>
                     <Pinput name="username" status={clickUsername}></Pinput>
-                    <Input type="text" name="username" id="username" placeholder="" change={handleOnChangeUsername} value={inputValueUsername} focus={handleClickUsername} blur={handleClickUsername}></Input>           
+                    <Input type="text" name="username" id="username" placeholder="" change={handleOnChangeUsername} value={inputValueUsername} focus={handleClickUsername} blur={handleClickUsername}></Input>                    
                     <Pinput name="mail" status={clickMail}></Pinput>
                     <Input type="email" name="mail" id="mail" placeholder="" change={handleOnChangeMail} value={inputValueMail} focus={handleClickMail} blur={handleClickMail}></Input>           
                     <Pinput name="password" status={clickPassword}></Pinput>
