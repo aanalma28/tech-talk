@@ -15,6 +15,7 @@ export default function Input(props){
                     onBlur={props.blur}
                     value={props.value}
                     onChange={props.change}
+                    required
                 />
         },
         {
@@ -30,6 +31,7 @@ export default function Input(props){
                     onBlur={props.blur}
                     value={props.value}
                     onChange={props.change}
+                    required
                 />
         },
         {
@@ -45,6 +47,7 @@ export default function Input(props){
                     onBlur={props.blur}
                     value={props.value}
                     onChange={props.change}
+                    required
                 />
         }
     ]

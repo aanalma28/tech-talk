@@ -70,6 +70,33 @@ app.prepare().then(() => {
     }
   });
 
+  server.post('/login', async (req, res) => {
+    try{
+      const data = req.body
+      const findData = await User.findOne({email: data.email, password: data.password}).exec()
+
+      if(findData){
+        return res.status(200).json({
+          message: 'Login Successful!',
+          success: true,
+          data: req.body
+        })
+      }
+
+      res.status(401).json({
+        message: 'Invalid Credentials',
+        success: false
+      })
+    }
+    catch(e){
+      res.status(500).json({
+        message: "Server Error",
+        success: false,
+        errors: e,      
+      })
+    }
+  })
+
 //   Handle Next.js routes
   server.all('*', (req, res) => {    
     return handle(req, res);

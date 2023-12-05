@@ -6,18 +6,21 @@ import Input from "../../../components/input"
 import Link from "next/link"
 import DividerLogin from "../../../components/dividerlogin"
 import { useState } from "react"
+import { NextResponse } from 'next/server'
+import { useRouter } from 'next/navigation'
 
 export default function Login(){
-    const [inputValueUsername, setInputValueUsername] = useState('')
+    const router = useRouter()
+    const [inputValueEmail, setInputValueEmail] = useState('')
     const [inputValuePassword, setInputValuePassword] = useState('')
-    const [clickUsername, isClickUsername] = useState(true)
+    const [clickEmail, isClickEmail] = useState(true)
     const [clickPassword, isClickPassword] = useState(true)
-    const isInputValueUsername = Boolean(inputValueUsername)
+    const isInputValueEmail = Boolean(inputValueEmail)
     const isInputValuePassword = Boolean(inputValuePassword)
 
-    const handleOnChangeUsername = (e) =>{
+    const handleOnChangeEmail = (e) =>{
         const value = e.target.value
-        setInputValueUsername(value)
+        setInputValueEmail(value)
     }
 
     const handleOnChangePassword = (e) =>{
@@ -25,12 +28,12 @@ export default function Login(){
         setInputValuePassword(value)
     }
 
-    const handleClickUsername = () => {
-        if(isInputValueUsername){
-            isClickUsername(false)
+    const handleClickEmail = () => {
+        if(isInputValueEmail){
+            isClickEmail(false)
         }
         else{
-            isClickUsername(!clickUsername);
+            isClickEmail(!clickEmail);
         }
     }
 
@@ -43,15 +46,39 @@ export default function Login(){
         }
     }
 
+    const handleSubmit = async (e) => {
+        e.preventDefault()
+
+        const data = {
+            email: inputValueEmail,
+            password: inputValuePassword
+        }
+
+        const response = await fetch('/login', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(data)
+        })
+
+        const json = await response.json()
+        console.log(json)
+
+        if(json.success){
+            router.push('/dashboard')
+        }
+    }
+
 
     return (
         <main>
             <div className={style.formWrapperReglog}>
-                <form className={style.form}>                    
+                <form className={style.form} onSubmit={handleSubmit}>                    
                     <h3 className={style.titleLogin}><span>Welcome</span>, Sign in to Continue</h3>
                     <p className={style.textLogin}>We recommend using <b>github account</b> to sign in.</p>
-                    <Pinput name="username" status={clickUsername}></Pinput>
-                    <Input type="text" name="username" id="username" placeholder="" change={handleOnChangeUsername} value={inputValueUsername} focus={handleClickUsername} blur={handleClickUsername}></Input>           
+                    <Pinput name="mail" status={clickEmail}></Pinput>
+                    <Input type="email" name="mail" id="mail" placeholder="" change={handleOnChangeEmail} value={inputValueEmail} focus={handleClickEmail} blur={handleClickEmail}></Input>           
                     <Pinput name="password" status={clickPassword}></Pinput>
                     <Input type="password" name="password" id="password" placeholder="" change={handleOnChangePassword} value={inputValuePassword} focus={handleClickPassword} blur={handleClickPassword}></Input>
                     <Link className={style.reglogLink} href="/register">Dont have account? Register Now</Link>
