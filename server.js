@@ -34,24 +34,40 @@ app.prepare().then(() => {
   server.use(express.urlencoded({ extended: true })) // for parsing application/x-www-form-urlencoded
 
   // Custom Express routes
-  server.post('/test', async (req, res) => {
-    const getData = await User.find()
-    res.status(200).json(getData)
-    // try{
-    //   const data = await req.body
+  server.post('/test', async (req, res) => {    
+    try{
+      const data = await req.body
+      
+      const findData = await User.findOne({email: data.email}).exec()
 
-    //   res.status(200).json({
-    //       message: "Data send!",
-    //       success: true,
-    //       data: req.body
-    //   })
+      if(findData){
+        return res.status(409).json({
+          message: "mail already exists",
+          success: false,
+        })
+      }
 
-    // }catch(e){
-    //   res.status(500).json({
-    //     message: "Invalid",
-    //     success: false
-    //   })
-    // }
+      const createUser = new User({
+        username: data.username,
+        email: data.email,
+        password: data.password
+      })
+
+      await createUser.save()
+
+      res.status(200).json({
+          message: "Registration Successfully!",
+          success: true,
+          data: req.body
+      })
+
+    }catch(e){
+      res.status(500).json({
+        message: "Server Error",
+        errors: e,
+        success: false
+      })
+    }
   });
 
 //   Handle Next.js routes
