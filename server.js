@@ -34,7 +34,7 @@ app.prepare().then(() => {
   server.use(express.urlencoded({ extended: true })) // for parsing application/x-www-form-urlencoded
 
   // Custom Express routes
-  server.post('/test', async (req, res) => {    
+  server.post('/register', async (req, res) => {    
     try{
       const data = await req.body
       

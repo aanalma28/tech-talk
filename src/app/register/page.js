@@ -103,7 +103,7 @@ export default function Register(){
         }
 
         try{
-            const response = await fetch('/test', {
+            const response = await fetch('/register', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
