@@ -76,10 +76,12 @@ app.prepare().then(() => {
       const findData = await User.findOne({email: data.email, password: data.password}).exec()
 
       if(findData){
-        return res.status(200).json({
+        return res.status(200).cookie(
+          'data', findData, { expires: new Date(Date.now() + 900000)}
+        ).json({
           message: 'Login Successful!',
           success: true,
-          data: req.body
+          data: findData
         })
       }
 

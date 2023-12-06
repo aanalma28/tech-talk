@@ -6,11 +6,8 @@ import Input from "../../../components/input"
 import Link from "next/link"
 import DividerLogin from "../../../components/dividerlogin"
 import { useState } from "react"
-import { NextResponse } from 'next/server'
-import { useRouter } from 'next/navigation'
 
-export default function Login(){
-    const router = useRouter()
+export default function Login(){    
     const [inputValueEmail, setInputValueEmail] = useState('')
     const [inputValuePassword, setInputValuePassword] = useState('')
     const [clickEmail, isClickEmail] = useState(true)
@@ -63,11 +60,7 @@ export default function Login(){
         })
 
         const json = await response.json()
-        console.log(json)
-
-        if(json.success){
-            router.push('/dashboard')
-        }
+        console.log(json)      
     }
 
 

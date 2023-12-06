@@ -1,11 +1,14 @@
 import style from '../../../styles/dashboard.module.css'
 import Card from '../../../components/card'
+import{ cookies } from 'next/headers'
 
-export default function Dashboard(){
+export default function Dashboard(){    
+    const cookieStore = cookies()
+    const data = cookieStore.get('data')
     return(
         <>
             <h3>Dashboard</h3>
-            <h3>Welcome, <span>Name</span></h3>
+            <h3>Welcome, <span>{{ data }}</span></h3>
                 <div className={style.mainContentWrapper}>
                     <h5>Welcome to Beta Tester</h5>
                     <p>Congratulation for you about choosen Beta Tester Person. 
