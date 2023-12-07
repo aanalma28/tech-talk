@@ -6,8 +6,10 @@ import Input from "../../../components/input"
 import Link from "next/link"
 import DividerLogin from "../../../components/dividerlogin"
 import { useState } from "react"
+import { useRouter } from 'next/navigation'
 
-export default function Login(){    
+export default function Login(){
+    const router = useRouter()    
     const [inputValueEmail, setInputValueEmail] = useState('')
     const [inputValuePassword, setInputValuePassword] = useState('')
     const [clickEmail, isClickEmail] = useState(true)
@@ -43,7 +45,8 @@ export default function Login(){
         }
     }
 
-    const handleSubmit = async () => {        
+    const handleSubmit = async (e) => {        
+        e.preventDefault()
 
         const data = {
             email: inputValueEmail,
@@ -57,13 +60,19 @@ export default function Login(){
             },
             body: JSON.stringify(data)
         })
+
+        const json = await response.json()
+
+        if(json.success){
+            router.push('/dashboard')
+        }
     }
 
 
     return (
         <main>
             <div className={style.formWrapperReglog}>
-                <form className={style.form} onSubmit={handleSubmit}>                    
+                <form className={style.form} onSubmit={handleSubmit}>           
                     <h3 className={style.titleLogin}><span>Welcome</span>, Sign in to Continue</h3>
                     <p className={style.textLogin}>We recommend using <b>github account</b> to sign in.</p>
                     <Pinput name="mail" status={clickEmail}></Pinput>

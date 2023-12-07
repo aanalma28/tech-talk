@@ -1,5 +1,6 @@
 // server.js
 const express = require('express');
+const cookieParser = require('cookie-parser')
 const MongoClient = require('mongodb').MongoClient
 const mongoose = require('mongoose')
 
@@ -32,6 +33,7 @@ app.prepare().then(() => {
 
   server.use(express.json()) // for parsing application/json
   server.use(express.urlencoded({ extended: true })) // for parsing application/x-www-form-urlencoded
+  server.use(cookieParser())
 
   // Custom Express routes
   server.post('/register', async (req, res) => {    
@@ -81,12 +83,15 @@ app.prepare().then(() => {
           email: findData.email,
           password: findData.password
         }
-
+  
         const userDataString = JSON.stringify(userData)
-
+  
         return res.status(200).cookie(
           'data', userDataString, { expires: new Date(Date.now() + 900000)}
-        ).redirect('/dashboard')
+        ).json({
+          message: 'Login Successfully',
+          success: true
+        })
       }
 
       res.status(401).json({
