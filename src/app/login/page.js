@@ -43,8 +43,7 @@ export default function Login(){
         }
     }
 
-    const handleSubmit = async (e) => {
-        e.preventDefault()
+    const handleSubmit = async () => {        
 
         const data = {
             email: inputValueEmail,
@@ -58,9 +57,6 @@ export default function Login(){
             },
             body: JSON.stringify(data)
         })
-
-        const json = await response.json()
-        console.log(json)      
     }
 
 

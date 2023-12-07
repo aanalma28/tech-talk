@@ -1,14 +1,27 @@
+'use client'
 import style from '../../../styles/dashboard.module.css'
 import Card from '../../../components/card'
-import{ cookies } from 'next/headers'
+import { useEffect, useState } from 'react'
+import Cookies from 'js-cookie'
 
-export default function Dashboard(){    
-    const cookieStore = cookies()
-    const data = cookieStore.get('data')
+export default function Dashboard(){
+    const [data, setData] = useState({username: '', email: '', password: ''})
+    useEffect(() => {
+        const storeData = Cookies.get('data')
+        const parse = JSON.parse(storeData)      
+
+        if(storeData){
+            setData({
+                username: parse.username,
+                email: parse.email,
+                password: parse.password
+            })
+        }        
+    })
     return(
         <>
             <h3>Dashboard</h3>
-            <h3>Welcome, <span>{{ data }}</span></h3>
+            <h3>Welcome, <span>{data.username}</span></h3>
                 <div className={style.mainContentWrapper}>
                     <h5>Welcome to Beta Tester</h5>
                     <p>Congratulation for you about choosen Beta Tester Person. 
