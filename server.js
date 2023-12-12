@@ -129,8 +129,8 @@ app.prepare().then(() => {
     // })
     try{
       await mongoose.connect('mongodb://localhost:27017/techtalk-db')
-      if (err) throw err;
-      console.log('> Ready on http://localhost:3000');
+      if (err) throw err
+      console.log('> Ready on http://localhost:3000')
     }catch(err){
       console.error(err)
     }
