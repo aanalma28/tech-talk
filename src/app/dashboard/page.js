@@ -17,7 +17,7 @@ export default function Dashboard(){
                 password: parse.password
             })
         }        
-    })
+    }, [])
     return(
         <>
             <h3>Dashboard</h3>
