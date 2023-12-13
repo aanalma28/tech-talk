@@ -10,7 +10,11 @@ export default function Card({title, icon_name, position}){
             <h3 >{title}
                 <p >100.000+</p>
             </h3>
-            <Icons name={icon_name} position={position}></Icons>
+            <Icons 
+                name={icon_name} 
+                position={position}
+                color={icon_name==='star'?'#FCE22A':icon_name==='comments'?'#03C988':icon_name==='share'?'#75C2F6':''}
+            ></Icons>
         </div>
     )
 }

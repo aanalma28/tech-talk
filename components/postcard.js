@@ -11,9 +11,9 @@ export default function PostCard(){
                 <p>Lorem ipsum dolor sit amet</p>
                 <div className={style.dividerContent}></div>
                 <div className={style.reactWrapper}>
-                    <Icons></Icons>
-                    <Icons></Icons>
-                    <Icons></Icons>
+                    <Icons name="star"></Icons>
+                    <Icons name="comments"></Icons>
+                    <Icons name="share"></Icons>
                 </div>
             </div>
         </div>
