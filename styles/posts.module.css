@@ -27,36 +27,3 @@
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 10px;
 }
-
-.cardWrapper{
-    border: 1px solid var(--shadecolor);
-    border-radius: 10px;
-}
-
-.cardWrapper img{
-    border-top-right-radius: 10px;
-    border-top-left-radius: 10px;
-    width: 100%;
-    height: 200px;
-    object-fit: cover;
-}
-
-.content{
-    margin: 10px;
-}
-
-.content h2{
-    color: var(--color3);
-}
-
-.content p{
-    color: var(--color3);
-    font-size: 16px;
-}
-
-.dividerContent{
-    width: 100%;
-    margin: 10px 0;
-    height: 1px;
-    background-color: var(--shadecolor);
-}

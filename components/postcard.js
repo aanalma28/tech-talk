@@ -1,4 +1,4 @@
-import style from '../styles/posts.module.css'
+import style from '../styles/postscard.module.css'
 import Image from 'next/image'
 import Icons from './icons'
 
@@ -11,9 +11,9 @@ export default function PostCard(){
                 <p>Lorem ipsum dolor sit amet</p>
                 <div className={style.dividerContent}></div>
                 <div className={style.reactWrapper}>
-                    <Icons name="star"></Icons>
-                    <Icons name="comments"></Icons>
-                    <Icons name="share"></Icons>
+                    <Icons name="star" position="card" color="#d8d8d8"></Icons>
+                    <Icons name="comments" position="card" color="#d8d8d8"></Icons>
+                    <Icons name="share" position="card" color="#d8d8d8"></Icons>
                 </div>
             </div>
         </div>

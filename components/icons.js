@@ -3,6 +3,7 @@ import style2 from '../styles/dashboard.module.css'
 import style3 from '../styles/bottombar.module.css'
 import style4 from '../styles/landingpage.module.css'
 import style5 from '../styles/style.module.css'
+import style6 from '../styles/postscard.module.css'
 
 export default function Icons({ name, width, position, click, color }) {
     const icons = [
@@ -69,7 +70,7 @@ export default function Icons({ name, width, position, click, color }) {
         },
         {
             name_icon: "star",
-            icon: <div id="icon" className={position === "dashboard" ? style2.starDashboard : ''}><svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            icon: <div id="icon" className={position === "dashboard" ? style2.starDashboard : position === 'card' ? style6.cardStar : ''}><svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
             <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
             <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
             <g id="SVGRepo_iconCarrier"> 
@@ -81,7 +82,7 @@ export default function Icons({ name, width, position, click, color }) {
         },
         {
             name_icon: "share",
-            icon: <div id="icon" className={position === 'dashboard' ? style2.shareDashboard : ''}>
+            icon: <div id="icon" className={position === 'dashboard' ? style2.shareDashboard : position === 'card' ? style6.cardShare : ''}>
                 <svg viewBox="0 -0.5 25 25" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
                     <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
@@ -96,7 +97,7 @@ export default function Icons({ name, width, position, click, color }) {
         },
         {
             name_icon: "comments",
-            icon: <div id="icon" className={position === 'dashboard' ? style2.commentsDashboard : ''}>
+            icon: <div id="icon" className={position === 'dashboard' ? style2.commentsDashboard : position === 'card' ? style6.cardComments : ''}>
                 <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
                     <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
@@ -158,36 +159,6 @@ export default function Icons({ name, width, position, click, color }) {
                 <div className={style5.loading}></div>
             </div>
         },
-        {
-            name_icon: "comments",
-            icon: <div>
-                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
-                    <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
-                    <g id="SVGRepo_iconCarrier"> 
-                        <g clip-path="url(#clip0_429_11233)"> 
-                            <path d="M12 21C16.9706 21 21 16.9706 21 12C21 7.02944 16.9706 3 12 3C7.02944 3 3 7.02944 3 12C3 13.4876 3.36093 14.891 4 16.1272L3 21L7.8728 20C9.10904 20.6391 10.5124 21 12 21Z" 
-                                stroke="#292929" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                            </path> 
-                        </g> <defs> <clipPath id="clip0_429_11233"> <rect width="24" height="24" fill="white"></rect> </clipPath> </defs> </g>
-                </svg>
-            </div>
-        },
-        {
-            name_icon: "share",
-            icon: <div>
-                <svg viewBox="0 -0.5 25 25" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
-                    <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
-                    <g id="SVGRepo_iconCarrier"> 
-                        <path fill-rule="evenodd" clip-rule="evenodd" 
-                            d="M14.734 15.8974L19.22 12.1374C19.3971 11.9927 19.4998 11.7761 19.4998 11.5474C19.4998 11.3187 19.3971 11.1022 19.22 10.9574L14.734 7.19743C14.4947 6.9929 14.1598 6.94275 13.8711 7.06826C13.5824 7.19377 13.3906 7.47295 13.377 7.78743V9.27043C7.079 8.17943 5.5 13.8154 5.5 16.9974C6.961 14.5734 10.747 10.1794 13.377 13.8154V15.3024C13.3888 15.6178 13.5799 15.8987 13.8689 16.0254C14.158 16.1521 14.494 16.1024 14.734 15.8974Z" 
-                            stroke="#000000" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                        </path> 
-                    </g>
-                </svg>
-            </div>
-        }
         
     ]
 
