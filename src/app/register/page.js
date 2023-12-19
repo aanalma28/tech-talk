@@ -147,11 +147,11 @@ export default function Register(){
                     <h3 className={style.titleLogin}><span>First</span>, Please Fill Form Below</h3>
                     <p className={style.textLogin}>We recommend using <b>github account</b> to sign in.</p>
                     <Pinput name="username" status={clickUsername}></Pinput>
-                    <Input type="text" name="username" id="username" placeholder="" change={handleOnChangeUsername} value={inputValueUsername} focus={handleClickUsername} blur={handleClickUsername} required></Input>                    
+                    <Input page="register_login" type="text" name="username" id="username" placeholder="" change={handleOnChangeUsername} value={inputValueUsername} focus={handleClickUsername} blur={handleClickUsername} required></Input>                    
                     <Pinput name="mail" status={clickMail}></Pinput>
-                    <Input type="email" name="mail" id="mail" placeholder="" change={handleOnChangeMail} value={inputValueMail} focus={handleClickMail} blur={handleClickMail} required></Input>           
+                    <Input page="register_login" type="email" name="mail" id="mail" placeholder="" change={handleOnChangeMail} value={inputValueMail} focus={handleClickMail} blur={handleClickMail} required></Input>           
                     <Pinput name="password" status={clickPassword}></Pinput>
-                    <Input type="password" name="password" id="password" placeholder="" change={handleOnChangePassword} value={inputValuePassword} focus={handleClickPassword} blur={handleClickPassword} required></Input>
+                    <Input page="register_login" type="password" name="password" id="password" placeholder="" change={handleOnChangePassword} value={inputValuePassword} focus={handleClickPassword} blur={handleClickPassword} required></Input>
                     <Link className={style.reglogLink} href={`/login`} prefetch>Already Have account? Sign in Now</Link>
                     <button className={style.loginButton} type="submit">Register</button>
                     <DividerLogin></DividerLogin>

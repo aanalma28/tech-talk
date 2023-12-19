@@ -76,9 +76,9 @@ export default function Login(){
                     <h3 className={style.titleLogin}><span>Welcome</span>, Sign in to Continue</h3>
                     <p className={style.textLogin}>We recommend using <b>github account</b> to sign in.</p>
                     <Pinput name="mail" status={clickEmail}></Pinput>
-                    <Input type="email" name="mail" id="mail" placeholder="" change={handleOnChangeEmail} value={inputValueEmail} focus={handleClickEmail} blur={handleClickEmail}></Input>           
+                    <Input page="register_login" type="email" name="mail" id="mail" placeholder="" change={handleOnChangeEmail} value={inputValueEmail} focus={handleClickEmail} blur={handleClickEmail}></Input>           
                     <Pinput name="password" status={clickPassword}></Pinput>
-                    <Input type="password" name="password" id="password" placeholder="" change={handleOnChangePassword} value={inputValuePassword} focus={handleClickPassword} blur={handleClickPassword}></Input>
+                    <Input page="register_login" type="password" name="password" id="password" placeholder="" change={handleOnChangePassword} value={inputValuePassword} focus={handleClickPassword} blur={handleClickPassword}></Input>
                     <Link className={style.reglogLink} href="/register">Dont have account? Register Now</Link>
                     <button className={style.loginButton} type="submit">Sign in</button>
                     <DividerLogin></DividerLogin>

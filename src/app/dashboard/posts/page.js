@@ -6,7 +6,7 @@ export default function Posts(){
     return (
         <div className={style.postsWrapper}>
             <span >
-                <button>+ New</button>
+                <Link href="/dashboard/posts/create">+ New</Link>
             </span>
             <div className={style.postsCardWrapper}>
                 <Link href="">

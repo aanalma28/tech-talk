@@ -10,7 +10,7 @@
     justify-content: flex-end;
 }
 
-.postsWrapper span button{
+.postsWrapper span a{
     cursor: pointer;
     padding: 15px 20px;
     background-color: var(--maincolor);
