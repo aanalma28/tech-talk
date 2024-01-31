@@ -14,7 +14,8 @@ export default function Create(){
             <h3>Create Your Posts</h3>
             <form onSubmit={handleSubmit} className={style.form}>                
                 <Input page="posts" placeholder="Input Title"></Input>
-                <Textarea page="posts" placeholder="Input Description"></Textarea>                
+                <Textarea page="posts" placeholder="Input Description"></Textarea>
+                <input className={style.file} type="file" placeholder="Select a file"></input>            
             </form>
         </>
     )

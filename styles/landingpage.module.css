@@ -141,6 +141,37 @@
     gap: 10px;
 }
 
+.footer{
+    width: 100%;
+    display: flex;
+    bottom: 0;    
+    position: fixed;
+    justify-content: flex-end;
+}
+.createPost{    
+    width: 70px;
+    height: 70px;    
+    background-color: var(--maincolor);
+    border-radius: 50%;    
+}
+
+
+.hPlus{
+    width: 40px;
+    height: 10px;    
+    transform: translate(15px, 30px);
+    background-color: white;    
+    border-radius: 10px;
+}
+
+.vPlus{
+    width: 10px;
+    height: 40px;
+    background-color: white;
+    transform: translate(30px, 5px);
+    border-radius: 10px;
+}
+
 
 
 /* media query */

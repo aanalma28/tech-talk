@@ -151,7 +151,7 @@ export default function Register(){
                     <Pinput name="mail" status={clickMail}></Pinput>
                     <Input page="register_login" type="email" name="mail" id="mail" placeholder="" change={handleOnChangeMail} value={inputValueMail} focus={handleClickMail} blur={handleClickMail} required></Input>           
                     <Pinput name="password" status={clickPassword}></Pinput>
-                    <Input page="register_login" type="password" name="password" id="password" placeholder="" change={handleOnChangePassword} value={inputValuePassword} focus={handleClickPassword} blur={handleClickPassword} required></Input>
+                    <Input page="register_login" type="password" name="password" id="password" placeholder="" change={handleOnChangePassword} value={inputValuePassword} focus={handleClickPassword} blur={handleClickPassword} required></Input>                    
                     <Link className={style.reglogLink} href={`/login`} prefetch>Already Have account? Sign in Now</Link>
                     <button className={style.loginButton} type="submit">Register</button>
                     <DividerLogin></DividerLogin>

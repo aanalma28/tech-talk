@@ -256,6 +256,13 @@
     justify-content: center;
 }
 
+.eye{
+    width: 30px;
+    height: 30px;
+    transform: translate(1150%, -7vh);
+    cursor: pointer;
+}
+
 
 @media screen and (max-width: 670px){
     .form{

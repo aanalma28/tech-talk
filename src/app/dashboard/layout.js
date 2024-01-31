@@ -92,7 +92,7 @@ export default function DashboardLayout({ children }) {
     return (
         <html lang="en">
             <head>
-                <title>{path === '/dashboard' ? 'Dashboard' : path === '/dashboard/posts' ? 'Posts' : ''}</title>
+                <title>{path === '/dashboard' ? 'Dashboard' : path === '/dashboard/posts*' ? 'Posts' : ''}</title>
             </head>
             <body>
                 <div className={style.containerDashboard} id="container">

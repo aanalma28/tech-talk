@@ -5,10 +5,11 @@ import Pinput from "../../../components/pinput"
 import Input from "../../../components/input"
 import Link from "next/link"
 import DividerLogin from "../../../components/dividerlogin"
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import { useRouter } from 'next/navigation'
 
-export default function Login(){
+export default function Login(){    
+
     const router = useRouter()    
     const [inputValueEmail, setInputValueEmail] = useState('')
     const [inputValuePassword, setInputValuePassword] = useState('')
@@ -16,6 +17,7 @@ export default function Login(){
     const [clickPassword, isClickPassword] = useState(true)
     const isInputValueEmail = Boolean(inputValueEmail)
     const isInputValuePassword = Boolean(inputValuePassword)
+    const [errorMessage, setErrorMessage] = useState('')    
 
     const handleOnChangeEmail = (e) =>{
         const value = e.target.value
@@ -65,6 +67,8 @@ export default function Login(){
 
         if(json.success){
             router.push('/dashboard')
+        }else{
+            setErrorMessage('Either your username or password was incorrect!')
         }
     }
 
@@ -73,7 +77,7 @@ export default function Login(){
         <main>
             <div className={style.formWrapperReglog}>
                 <form className={style.form} onSubmit={handleSubmit}>           
-                    <h3 className={style.titleLogin}><span>Welcome</span>, Sign in to Continue</h3>
+                    <h3 className={style.titleLogin}><span>Welcome</span>, Sign in to Continue</h3>                    
                     <p className={style.textLogin}>We recommend using <b>github account</b> to sign in.</p>
                     <Pinput name="mail" status={clickEmail}></Pinput>
                     <Input page="register_login" type="email" name="mail" id="mail" placeholder="" change={handleOnChangeEmail} value={inputValueEmail} focus={handleClickEmail} blur={handleClickEmail}></Input>           

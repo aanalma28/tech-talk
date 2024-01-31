@@ -107,7 +107,12 @@ export default function Home() {
           </div>
         </section>
       </main>
-      <footer></footer>
+      <footer className={style.footer}>
+      <div className={style.createPost}>
+        <div className={style.hPlus}></div>
+        <div className={style.vPlus}></div>
+      </div>        
+      </footer>
     </>
   )
 }

@@ -33,7 +33,7 @@ app.prepare().then(() => {
 
   server.use(express.json()) // for parsing application/json
   server.use(express.urlencoded({ extended: true })) // for parsing application/x-www-form-urlencoded
-  server.use(cookieParser())
+  server.use(cookieParser())  
 
   // Custom Express routes
   server.post('/register', async (req, res) => {    
@@ -44,7 +44,7 @@ app.prepare().then(() => {
 
       if(findData){
         return res.status(409).json({
-          message: "mail already exists",
+          message: "Email already exists",
           success: false,
         })
       }
