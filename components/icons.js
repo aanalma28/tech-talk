@@ -4,6 +4,7 @@ import style3 from '../styles/bottombar.module.css'
 import style4 from '../styles/landingpage.module.css'
 import style5 from '../styles/style.module.css'
 import style6 from '../styles/postscard.module.css'
+import styleCreatePost from '../styles/createpost.module.css'
 
 export default function Icons({ name, width, position, click, color }) {
     const icons = [
@@ -182,6 +183,21 @@ export default function Icons({ name, width, position, click, color }) {
                     <g id="SVGRepo_iconCarrier"> 
                         <path d="M9.60997 9.60714C8.05503 10.4549 7 12.1043 7 14C7 16.7614 9.23858 19 12 19C13.8966 19 15.5466 17.944 16.3941 16.3878M21 14C21 9.02944 16.9706 5 12 5C11.5582 5 11.1238 5.03184 10.699 5.09334M3 14C3 11.0069 4.46104 8.35513 6.70883 6.71886M3 3L21 21" 
                             stroke="#d8d8d8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        </path> 
+                    </g>
+                </svg>
+            </div>
+        },
+        {
+            name_icon: "upload_file",
+            icon: <div className={styleCreatePost.upload} id="upload-img">
+                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                    <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                    <g id="SVGRepo_iconCarrier"> 
+                        <path d="M12 15L12 2M12 2L15 5.5M12 2L9 5.5" stroke="#4600a8" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path> 
+                        <path d="M8 22.0002H16C18.8284 22.0002 20.2426 22.0002 21.1213 21.1215C22 20.2429 22 18.8286 22 16.0002V15.0002C22 12.1718 22 10.7576 21.1213 9.8789C20.3529 9.11051 19.175 9.01406 17 9.00195M7 9.00195C4.82497 9.01406 3.64706 9.11051 2.87868 9.87889C2 10.7576 2 12.1718 2 15.0002L2 16.0002C2 18.8286 2 20.2429 2.87868 21.1215C3.17848 21.4213 3.54062 21.6188 4 21.749" 
+                            stroke="#4600a8" stroke-width="1.5" stroke-linecap="round">
                         </path> 
                     </g>
                 </svg>
