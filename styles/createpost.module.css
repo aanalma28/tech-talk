@@ -46,7 +46,7 @@
     border: 2px dashed var(--maincolor);
     text-align: center;
     border-radius: 10px;    
-    padding: 40px 0;
+    padding: 40px 40px;    
     background-position: center;
     background-size: cover;
 }
@@ -60,4 +60,10 @@
 .text p{
     font-size: 15px;
     color: var(--color5);
+}
+
+@media screen and (max-width: 670px){
+    .form{
+        width: 100%;
+    }
 }
