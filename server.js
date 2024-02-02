@@ -6,6 +6,9 @@ const mongoose = require('mongoose')
 const multer = require('multer')
 const path = require('path')
 
+// handle files
+
+
 const storage = multer.diskStorage({
   destination: function (req, file, cb) {
     const uploadDirectory = './uploads'
@@ -127,8 +130,10 @@ app.prepare().then(() => {
 
   server.post('/posts/create', upload.single('file'), async (req, res) => {
     const data = req.file
+    const cookies = req.cookies.data
 
     console.log(data)
+    console.log(cookies)
 
     res.status(200).json({
       message: 'Post Created!',
