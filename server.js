@@ -3,6 +3,23 @@ const express = require('express');
 const cookieParser = require('cookie-parser')
 const MongoClient = require('mongodb').MongoClient
 const mongoose = require('mongoose')
+const multer = require('multer')
+const path = require('path')
+
+const storage = multer.diskStorage({
+  destination: function (req, file, cb) {
+    const uploadDirectory = './uploads'
+    const fullPath = path.join(uploadDirectory, '/')
+
+    cb(null, fullPath)
+  },
+  filename: function (req, file, cb) {
+    const uniqueSuffix = Date.now() + '-' + Math.round(Math.random() * 1E9)
+    cb(null, file.fieldname + '-' + uniqueSuffix)
+  }
+})
+
+const upload = multer({ storage: storage })
 
 const next = require('next');
 
@@ -108,13 +125,14 @@ app.prepare().then(() => {
     }
   })
 
-  server.post('/posts/create', async (req, res) => {
-    const data = req.body
+  server.post('/posts/create', upload.single('file'), async (req, res) => {
+    const data = req.file
+
     console.log(data)
 
     res.status(200).json({
       message: 'Post Created!',
-      success: true
+      success: true,    
     })
   })
 

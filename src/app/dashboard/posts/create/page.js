@@ -38,9 +38,10 @@ export default function Create(){
 
     const [isData, setIsData] = useState({
         title: '',
-        desc: '',
-        file: null
+        desc: '',        
     })
+
+    const [isFile, setIsFile] = useState()
 
     const handleOnChangeTitle = (e) => {
         const input = e.target.value
@@ -54,7 +55,7 @@ export default function Create(){
 
     const handleOnChangeFile = (e) => {
         const selectedFile = e.target.files[0]
-        setIsData((prevData) => ({...prevData, file: selectedFile}))
+        setIsFile(selectedFile)
     }
 
     const handleSubmit = async (e) => {
@@ -63,7 +64,9 @@ export default function Create(){
         const formData = new FormData()
         formData.append('title', isData.title)
         formData.append('desc', isData.desc)
-        formData.append('file', isData.file)
+        formData.append('file', isFile)
+
+        console.log(...formData)
 
         try{
             const response = await fetch('/posts/create', {
