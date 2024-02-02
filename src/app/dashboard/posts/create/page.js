@@ -3,7 +3,7 @@ import style from '../../../../../styles/createpost.module.css'
 import Input from "../../../../../components/input"
 import Textarea from "../../../../../components/textarea"
 import Icons from '../../../../../components/icons'
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 
 export default function Create(){
     useEffect(() => {
@@ -12,7 +12,7 @@ export default function Create(){
         const imgView = document.getElementById('img-view')
         const textP = document.getElementById('text-p')
         const textH = document.getElementById('text-h')
-        const img = document.getElementById('upload-img')
+        const img = document.getElementById('upload-img')           
 
         file.addEventListener('change', uploadImage)
 
@@ -35,25 +35,63 @@ export default function Create(){
             uploadImage()
         })
     })
+
+    const [isData, setIsData] = useState({
+        title: '',
+        desc: '',
+        file: null
+    })
+
+    const handleOnChangeTitle = (e) => {
+        const input = e.target.value
+        setIsData((prevData) => ({...prevData, title: input}))
+    }
+
+    const handleOnChangeDesc = (e) => {
+        const input = e.target.value
+        setIsData((prevData) => ({...prevData, desc: input}))
+    }
+
+    const handleOnChangeFile = (e) => {
+        const selectedFile = e.target.files[0]
+        setIsData((prevData) => ({...prevData, file: selectedFile}))
+    }
+
     const handleSubmit = async (e) => {
         e.preventDefault()
 
+        const formData = new FormData()
+        formData.append('title', isData.title)
+        formData.append('desc', isData.desc)
+        formData.append('file', isData.file)
 
+        try{
+            const response = await fetch('/posts/create', {
+                method: 'POST',
+                body: formData
+            })
+
+            const json = await response.json()
+            console.log(json)
+        }catch(e){
+            console.log(e)
+        }
     }
     return (
         <>
             <h3>Create Your Posts</h3>
             <form onSubmit={handleSubmit} className={style.form}>                
-                <Input page="posts" placeholder="Input Title"></Input>
-                <Textarea page="posts" placeholder="Input Description"></Textarea>
+                <Input change={handleOnChangeTitle} value={isData.title} page="posts" placeholder="Input Title"></Input>
+                <Textarea change={handleOnChangeDesc} value={isData.desc} page="posts" placeholder="Input Description"></Textarea>
                 <label for="file" id="label_file">
-                    <input className={style.file} type="file" name="file" id="file" placeholder="Select a file" hidden></input>
+                    <input className={style.file} onChange={handleOnChangeFile} type="file" name="file" id="file" placeholder="Select a file" hidden></input>
                     <div className={style.text} id="img-view">
                         <Icons name="upload_file"></Icons>
                         <h4 id="text-h">Drag and drop or click here to upload image</h4>
                         <p id="text-p">Upload any images from desktop</p>
                     </div>
                 </label>
+                <button type="submit">Create</button>
             </form>
         </>
     )

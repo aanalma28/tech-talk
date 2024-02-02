@@ -10,6 +10,8 @@ export default function Textarea(props){
                     className={style.description}
                     id={props.id}
                     placeholder={props.placeholder}
+                    onChange={props.change}
+                    value={props.value}
                     required
                 />
         }

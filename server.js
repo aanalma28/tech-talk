@@ -108,6 +108,16 @@ app.prepare().then(() => {
     }
   })
 
+  server.post('/posts/create', async (req, res) => {
+    const data = req.body
+    console.log(data)
+
+    res.status(200).json({
+      message: 'Post Created!',
+      success: true
+    })
+  })
+
 //   Handle Next.js routes
   server.all('*', (req, res) => {    
     return handle(req, res);
