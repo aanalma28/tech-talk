@@ -13,6 +13,14 @@ import BottomBar from '../../../components/bottombar'
 export default function DashboardLayout({ children }) {
     const path = usePathname()
 
+    const TitleMap = {
+        '/dashboard':  'Dashboard',
+        '/dashboard/posts':  'Posts',
+        '/dashboard/posts/create': 'Create Post'
+    }
+
+    const title = TitleMap[path] || 'Default Path'
+
     useEffect(() => {
         const btnBurger = document.getElementById('btn-burger')
         // const container = document.getElementById('container')
@@ -92,10 +100,10 @@ export default function DashboardLayout({ children }) {
     return (
         <html lang="en">
             <head>
-                <title>{path === '/dashboard' ? 'Dashboard' : path === '/dashboard/posts*' ? 'Posts' : ''}</title>
+                <title>{title}</title>
             </head>
             <body>
-                <div className={style.containerDashboard} id="container">
+                <div className={style.containerDashboard} id="container">                    
                     <Sidebar></Sidebar>
                     <div className={style.mainWrapper} id="main-wrapper"> 
                         <div className={style.topBar} id="top-bar">
