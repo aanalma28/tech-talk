@@ -62,6 +62,23 @@
     color: var(--color5);
 }
 
+.createButton{
+    margin: 10px 0;
+    padding: 15px 0;
+    font-size: 1rem;
+    background-color: var(--maincolor);
+    border: none;
+    color: var(--color2);
+    font-weight: bold;
+    border-radius: 8px;
+}
+
+.createButton:hover{
+    background-color: var(--color2);
+    outline: 2px solid var(--maincolor);
+    color: var(--maincolor);
+}
+
 @media screen and (max-width: 670px){
     .form{
         width: 100%;

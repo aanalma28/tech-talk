@@ -94,7 +94,7 @@ export default function Create(){
                         <p id="text-p">Upload any images from desktop</p>
                     </div>
                 </label>
-                <button type="submit">Create</button>
+                <button className={style.createButton} type="submit">Create</button>
             </form>
         </>
     )
