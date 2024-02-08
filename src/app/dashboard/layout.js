@@ -33,6 +33,18 @@ export default function DashboardLayout({ children }) {
         const topBar = document.getElementById('top-bar')
         const span = btnBurger.querySelectorAll('span')
         
+        const postsWrapper = document.getElementById('posts-wrapper')
+        const dashboardWrapper = document.getElementById('dashboard-wrapper')                
+
+        window.addEventListener('resize', function(){
+            if(this.window.innerWidth < 1000){
+                postsWrapper.style.paddingLeft = '0'
+                dashboardWrapper.style.paddingLeft = '0'
+            }else{
+                postsWrapper.style.paddingLeft = '23%'
+                dashboardWrapper.style.paddingLeft = '23%'
+            }
+        })
 
         let count = 0
         btnBurger.addEventListener('click', () => {
@@ -45,11 +57,13 @@ export default function DashboardLayout({ children }) {
                 topBarWrapper.style.width = '90%'
                 topBar.style.marginLeft = '120px'
                 sidebar.style.width = '110px'
-                contentWrapper.style.paddingLeft = '140px'                
                 liElements.forEach((li) => {
                     const p = li.querySelector('p')
                     p.style.display = 'none'
                 })
+                contentWrapper.style.paddingLeft = '140px'                
+                postsWrapper.style.paddingLeft = '140px'                
+                dashboardWrapper.style.paddingLeft = '140px'                
             }
             else{
                 span[0].style.transform = 'translate(0, 0)'
@@ -58,12 +72,14 @@ export default function DashboardLayout({ children }) {
                 sidebar.style.width = '20%'
                 topBarWrapper.style.width = '78%'
                 topBar.style.marginLeft = '21%'
-                contentWrapper.style.paddingLeft = '22%'
                 h3.style.display = 'flex'
                 liElements.forEach((li) => {
                     const p = li.querySelector('p')
                     p.style.display = 'flex'
                 })
+                contentWrapper.style.paddingLeft = '22%'
+                dashboardWrapper.style.paddingLeft = '23%'
+                postsWrapper.style.paddingLeft = '23%'
             }
         })
 

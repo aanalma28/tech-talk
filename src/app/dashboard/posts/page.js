@@ -4,7 +4,7 @@ import Link from "next/link";
 
 export default function Posts(){
     return (
-        <div className={style.postsWrapper}>
+        <div id="post-wrapper" className={style.postsWrapper}>
             <span >
                 <Link href="/dashboard/posts/create">+ New</Link>
             </span>

@@ -1,7 +1,10 @@
 .dashboardWrapper{
     padding-left: 23%;
+    transition: all 0.2 ease;
     padding-top: 100px;
     padding-right: 10px;
+    height: 100%;
+    width: 100%;
 }
 
 .containerDashboard{
@@ -365,6 +368,11 @@
 
     .topBar{
         margin-left: 0;
+    }
+
+    .dashboardWrapper{
+        padding-left: 0;
+        padding-right: 0;
     }
     
 }

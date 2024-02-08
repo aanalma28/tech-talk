@@ -1,5 +1,6 @@
 .postsWrapper{
     display: grid;
+    transition: all 0.2 ease-in-out;
     padding-left: 23%;
     padding-top: 80px;
     padding-right: 10px;
@@ -29,4 +30,11 @@
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 10px;
+}
+
+@media screen and (max-width: 1000px){
+    .postsWrapper{
+        padding-left: 0;
+        padding-right: 0;
+    }
 }
