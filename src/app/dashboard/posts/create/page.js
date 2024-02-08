@@ -26,6 +26,14 @@ export default function Create(){
 
         file.addEventListener('change', uploadImage)
 
+        window.addEventListener('resize', () => {
+            if(window.innerWidth < 1000){
+                contentWrapper.style.marginLeft = '0'
+            }else{
+                contentWrapper.style.marginLeft = '21%'
+            }
+        })
+
         function uploadImage(){
             let imgLink = URL.createObjectURL(file.files[0])
             imgView.style.backgroundImage = `url(${imgLink})`
