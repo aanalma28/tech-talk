@@ -68,8 +68,7 @@ export default function DashboardLayout({ children }) {
         })
 
         const dot = document.getElementById('dot-wrapper')
-        const popup = document.getElementById('popup-wrapper')
-        const container = document.getElementById('container')
+        const popup = document.getElementById('popup-wrapper')        
 
         let countPopUp = 0
         dot.addEventListener('click', () => {

@@ -1,5 +1,8 @@
 .postsWrapper{
     display: grid;
+    padding-left: 23%;
+    padding-top: 80px;
+    padding-right: 10px;
     width: 100%;
     grid-template-rows: 0.1fr 1fr;
 }
