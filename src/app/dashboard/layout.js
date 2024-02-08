@@ -45,7 +45,7 @@ export default function DashboardLayout({ children }) {
                 topBarWrapper.style.width = '90%'
                 topBar.style.marginLeft = '120px'
                 sidebar.style.width = '110px'
-                contentWrapper.style.marginLeft = '120px'                
+                contentWrapper.style.paddingLeft = '140px'                
                 liElements.forEach((li) => {
                     const p = li.querySelector('p')
                     p.style.display = 'none'
@@ -58,7 +58,7 @@ export default function DashboardLayout({ children }) {
                 sidebar.style.width = '20%'
                 topBarWrapper.style.width = '78%'
                 topBar.style.marginLeft = '21%'
-                contentWrapper.style.marginLeft = '21%'
+                contentWrapper.style.paddingLeft = '22%'
                 h3.style.display = 'flex'
                 liElements.forEach((li) => {
                     const p = li.querySelector('p')

@@ -28,9 +28,9 @@ export default function Create(){
 
         window.addEventListener('resize', () => {
             if(window.innerWidth < 1000){
-                contentWrapper.style.marginLeft = '0'
+                contentWrapper.style.paddingLeft = '0'
             }else{
-                contentWrapper.style.marginLeft = '21%'
+                contentWrapper.style.paddingLeft = '22%'
             }
         })
 
