@@ -25,12 +25,13 @@ export default function DashboardLayout({ children }) {
         const btnBurger = document.getElementById('btn-burger')
         // const container = document.getElementById('container')
         const sidebar = document.getElementById('sidebar')
-        const mainWrapper = document.getElementById('main-wrapper')
+        const contentWrapper = document.getElementById('content-wrapper')
         const profileSidebar = document.getElementById('profile-sidebar')
         const h3 = profileSidebar.querySelector('h3')
         const liElements = sidebar.querySelectorAll('li')
         const topBarWrapper = document.getElementById('topbar-wrapper')
-        const span = btnBurger.querySelectorAll('span')
+        const topBar = document.getElementById('top-bar')
+        const span = btnBurger.querySelectorAll('span')        
 
         let count = 0
         btnBurger.addEventListener('click', () => {
@@ -40,9 +41,17 @@ export default function DashboardLayout({ children }) {
                 span[2].style.transform = 'translate(0, -12px)'
                 h3.style.display = 'none'
                 // container.style.gridTemplateColumns = '115px 1fr'
-                topBarWrapper.style.width = '90%'
-                sidebar.style.width = '110px'
-                mainWrapper.style.marginLeft = '120px'                
+                window.addEventListener('resize', () => {
+                    if(window.innerWidth <= 1000){
+                        contentWrapper.style.marginLeft = '0px'
+                    }
+                    else{
+                        topBarWrapper.style.width = '90%'
+                        topBar.style.marginLeft = '120px'
+                        sidebar.style.width = '110px'
+                        contentWrapper.style.marginLeft = '120px'                        
+                    }
+                })
                 liElements.forEach((li) => {
                     const p = li.querySelector('p')
                     p.style.display = 'none'
@@ -52,9 +61,17 @@ export default function DashboardLayout({ children }) {
                 span[0].style.transform = 'translate(0, 0)'
                 span[2].style.transform = 'translate(0, 0)'
                 // container.style.gridTemplateColumns = '0.3fr 1fr'
-                sidebar.style.width = '20%'
-                topBarWrapper.style.width = '78%'
-                mainWrapper.style.marginLeft = '21%'
+                window.addEventListener('resize', () => {
+                    if(window.innerWidth <= 1000){
+                        contentWrapper.style.marginLeft = '0px'
+                    }
+                    else{
+                        sidebar.style.width = '20%'
+                        topBarWrapper.style.width = '78%'
+                        topBar.style.marginLeft = '21%'
+                        contentWrapper.style.marginLeft = '21%'
+                    }
+                })
                 h3.style.display = 'flex'
                 liElements.forEach((li) => {
                     const p = li.querySelector('p')

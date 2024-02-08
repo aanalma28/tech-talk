@@ -1,3 +1,9 @@
+.contentWrapper{
+    margin-left: 21%;
+    transition: all 0.2s ease;
+    width: 100%;
+}
+
 .form{
     display: flex;
     flex-direction: column;
@@ -73,6 +79,90 @@
     border-radius: 8px;
 }
 
+/* popup section start */
+.popupWrapper{
+    position: fixed;
+    top: 0;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+}
+
+.popupContainer{    
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+    gap: 20px;    
+    border-radius: 10px;
+    background-color: var(--color2);
+    width: 50%;
+    padding: 30px 30px;
+}
+
+.loadingWrapper{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.loading{        
+    width: 75px;
+    height: 75px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.loading::after{
+    content: "";
+    width: 45px;
+    height: 45px;
+    border: 15px solid var(--shadecolor);
+    border-top-color: var(--maincolor);
+    border-radius: 50%;
+    animation: loading 0.75s ease infinite;
+}
+
+.imagePopUp{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.buttonWrapper{
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;    
+}
+
+.buttonWrapper a{    
+    margin-right: 5px;
+    padding: 10px 30px;
+    background-color: var(--maincolor);    
+    color: var(--color2);
+    border-radius: 5px;
+}
+
+.buttonWrapper a:hover{
+    background-color: var(--hovermain);
+}
+
+.btnClose{
+    padding: 10px 30px;
+    background-color: var(--alert);    
+    color: var(--color2);
+    border-radius: 5px;
+    border: 1px solid var(--alert);
+}
+
+.btnClose:hover{
+    background-color: var(--hoveralert);
+    border: 1px solid var(--hoveralert);
+}
+/* popup section end */
+
 .createButton:hover{
     background-color: var(--color2);
     outline: 2px solid var(--maincolor);
@@ -82,5 +172,9 @@
 @media screen and (max-width: 670px){
     .form{
         width: 100%;
+    }
+
+    .contentWrapper{
+        margin: 0;
     }
 }

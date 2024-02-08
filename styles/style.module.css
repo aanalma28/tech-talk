@@ -237,6 +237,8 @@
     border: 1px solid var(--hoveralert);
 }
 
+/* popup section end */
+
 @keyframes loading {
     from {
         transform: rotate(0turn);

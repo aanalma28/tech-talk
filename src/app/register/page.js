@@ -33,13 +33,12 @@ export default function Register(){
         if(isShow){
             popup.style.display = 'flex'
             formWrapper.style.opacity = '0.5'
-            formWrapper.style.backgroundColor = 'rgb(216, 216, 216)'
+            popup.style.backgroundColor = 'rgba(216, 216, 216, 0.5)'
             
         }
         else{
             popup.style.display = 'none'
-            formWrapper.style.opacity = '1'
-            formWrapper.style.backgroundColor = '#ffff'            
+            formWrapper.style.opacity = '1'                        
         }
     })
 
@@ -130,6 +129,11 @@ export default function Register(){
         }
         catch(e){
             console.log(e)
+            setIsSuccess({
+                success: false,
+                message: e
+            })
+            setImagePopUp('fail')
         }
         finally{
             // if(isSuccess.success){
@@ -160,7 +164,7 @@ export default function Register(){
                         <ListSignIn login="discord" text="Continue with Discord"></ListSignIn>
                     </ul>
                 </form>
-            </div>
+            </div>            
             <div className={style.popupWrapper} id="popup">
                 <div className={style.popupContainer}>
                     {
