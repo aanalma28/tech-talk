@@ -1,6 +1,6 @@
 .postsWrapper{
     display: grid;
-    transition: all 0.2 ease-in-out;
+    transition: all 0.2s ease;
     padding-left: 23%;
     padding-top: 80px;
     padding-right: 10px;

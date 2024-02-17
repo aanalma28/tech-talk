@@ -1,6 +1,6 @@
 'use server'
 import { NextResponse } from "next/server"
-import User from '../../../../../lib/models/users'
+import User from '../../../../../lib/models'
 
 export async function POST(request){
     if(request.method == 'POST'){

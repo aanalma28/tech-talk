@@ -61,9 +61,9 @@ export default function DashboardLayout({ children }) {
                     const p = li.querySelector('p')
                     p.style.display = 'none'
                 })
-                contentWrapper.style.paddingLeft = '140px'                
-                postsWrapper.style.paddingLeft = '140px'                
-                dashboardWrapper.style.paddingLeft = '140px'                
+                contentWrapper != null ? contentWrapper.style.paddingLeft = '140px' : 0                
+                postsWrapper != null ? postsWrapper.style.paddingLeft = '140px' : 0                
+                dashboardWrapper != null ? dashboardWrapper.style.paddingLeft = '140px' : 0                
             }
             else{
                 span[0].style.transform = 'translate(0, 0)'
@@ -77,9 +77,9 @@ export default function DashboardLayout({ children }) {
                     const p = li.querySelector('p')
                     p.style.display = 'flex'
                 })
-                contentWrapper.style.paddingLeft = '22%'
-                dashboardWrapper.style.paddingLeft = '23%'
-                postsWrapper.style.paddingLeft = '23%'
+                contentWrapper != null ? contentWrapper.style.paddingLeft = '22%' : 0
+                dashboardWrapper != null ? dashboardWrapper.style.paddingLeft = '23%' : 0
+                postsWrapper != null ? postsWrapper.style.paddingLeft = '23%' : 0
             }
         })
 
