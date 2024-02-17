@@ -38,11 +38,11 @@ export default function DashboardLayout({ children }) {
 
         window.addEventListener('resize', function(){
             if(this.window.innerWidth < 1000){
-                postsWrapper.style.paddingLeft = '0'
-                dashboardWrapper.style.paddingLeft = '0'
+                postsWrapper != null ? postsWrapper.style.paddingLeft = '0' : 0
+                dashboardWrapper != null ? dashboardWrapper.style.paddingLeft = '0' : 0
             }else{
-                postsWrapper.style.paddingLeft = '23%'
-                dashboardWrapper.style.paddingLeft = '23%'
+                postsWrapper != null ? postsWrapper.style.paddingLeft = '23%' : 0
+                dashboardWrapper != null ? dashboardWrapper.style.paddingLeft = '23%' : 0
             }
         })
 
@@ -54,8 +54,8 @@ export default function DashboardLayout({ children }) {
                 span[2].style.transform = 'translate(0, -12px)'
                 h3.style.display = 'none'
                 // container.style.gridTemplateColumns = '115px 1fr'
-                topBarWrapper.style.width = '90%'
-                topBar.style.marginLeft = '120px'
+                // topBarWrapper.style.width = '90%'
+                topBar.style.paddingLeft = '120px'
                 sidebar.style.width = '110px'
                 liElements.forEach((li) => {
                     const p = li.querySelector('p')
@@ -70,8 +70,8 @@ export default function DashboardLayout({ children }) {
                 span[2].style.transform = 'translate(0, 0)'
                 // container.style.gridTemplateColumns = '0.3fr 1fr'
                 sidebar.style.width = '20%'
-                topBarWrapper.style.width = '78%'
-                topBar.style.marginLeft = '21%'
+                // topBarWrapper.style.width = '78%'
+                topBar.style.paddingLeft = '22%'
                 h3.style.display = 'flex'
                 liElements.forEach((li) => {
                     const p = li.querySelector('p')
