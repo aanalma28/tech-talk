@@ -349,6 +349,13 @@
 
 /* responsive */
 @media screen and (max-width: 1000px){
+    .dashboardWrapper{
+        padding-top: 100px;
+        padding-bottom: 100px;
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+
     .containerDashboard{
         width: 100%;
     }
@@ -366,7 +373,7 @@
     }
 
     .mainWrapper{
-        margin: 0 15px;
+        margin: 0;
     }
 
     .topBarWrapper{ 
@@ -379,13 +386,8 @@
         display: flex;
         align-items: center;
         justify-content: center;
-        padding-left: 0;
-        padding-right: 0;
-    }
-
-    .dashboardWrapper{
-        padding-left: 0;
-        padding-right: 0;
+        padding-left: 15px;
+        padding-right: 15px;
     }
     
 }

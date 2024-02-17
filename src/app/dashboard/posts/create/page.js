@@ -1,5 +1,6 @@
 'use client'
 import style from '../../../../../styles/createpost.module.css'
+import style2 from '../../../../../styles/popup.module.css'
 import Input from "../../../../../components/input"
 import Textarea from "../../../../../components/textarea"
 import Icons from '../../../../../components/icons'
@@ -28,7 +29,7 @@ export default function Create(){
 
         window.addEventListener('resize', () => {
             if(window.innerWidth < 1000){
-                contentWrapper.style.paddingLeft = '0'
+                contentWrapper.style.paddingLeft = '15px'
             }else{
                 contentWrapper.style.paddingLeft = '22%'
             }
@@ -158,23 +159,25 @@ export default function Create(){
                     <button className={style.createButton} type="submit">Create</button>
                 </form>
             </div>
-            <div className={style.popupWrapper} id="popup">
-                <div className={style.popupContainer}>
+            <div className={style2.popupWrapper} id="popup">
+                <div className={style2.popupContainer}>
                     {
                         imagePopUp == 'loading' ? <Icons name="loading"></Icons> : 
                         imagePopUp == 'success' ?  <Images name="checklist"></Images>: 
                         imagePopUp == 'fail' ? <Images name="fail"></Images> : 
                         ''
-                    }                   
-                    <h3>{isSuccess.message}</h3>                    
-                    <div className={style.buttonWrapper}>
+                    }
+                    <div className={style2.message}>
+                        <h3>{isSuccess.message}</h3>                                        
+                    </div>                   
+                    <div className={style2.buttonWrapper}>
                         {                            
                             imagePopUp == 'success' ?  <Link href='/login'>Login</Link> :
                             ''
                         }
                         {
                             imagePopUp == 'loading' ? '' :
-                            <button className={style.btnClose} onClick={handlerClose}>Close</button>  
+                            <button className={style2.btnClose} onClick={handlerClose}>Close</button>  
                         }
                     </div>              
                 </div>

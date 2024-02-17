@@ -1,6 +1,6 @@
 import style from '../styles/style.module.css'
 import Image from 'next/image'
-import style2 from '../styles/style.module.css'
+import style2 from '../styles/popup.module.css'
 
 export default function Images(props){
     const svgImage = [

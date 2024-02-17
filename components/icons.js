@@ -2,9 +2,9 @@ import style from '../styles/style.module.css'
 import style2 from '../styles/dashboard.module.css'
 import style3 from '../styles/bottombar.module.css'
 import style4 from '../styles/landingpage.module.css'
-import style5 from '../styles/style.module.css'
 import style6 from '../styles/postscard.module.css'
 import styleCreatePost from '../styles/createpost.module.css'
+import stylePopup from '../styles/popup.module.css'
 
 export default function Icons({ name, width, position, click, color }) {
     const icons = [
@@ -156,8 +156,8 @@ export default function Icons({ name, width, position, click, color }) {
         },
         {
             name_icon: "loading",
-            icon: <div className={style5.loadingWrapper}>
-                <div className={style5.loading}></div>
+            icon: <div className={stylePopup.loadingWrapper}>
+                <div className={stylePopup.loading}></div>
             </div>
         },
         {

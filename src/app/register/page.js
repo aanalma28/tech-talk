@@ -1,5 +1,6 @@
 'use client'
 import style from '../../../styles/style.module.css'
+import style2 from '../../../styles/popup.module.css'
 import ListSignIn from "../../../components/listsignin"
 import Pinput from "../../../components/pinput"
 import Input from "../../../components/input"
@@ -165,23 +166,25 @@ export default function Register(){
                     </ul>
                 </form>
             </div>            
-            <div className={style.popupWrapper} id="popup">
-                <div className={style.popupContainer}>
+            <div className={style2.popupWrapper} id="popup">
+                <div className={style2.popupContainer}>
                     {
                         imagePopUp == 'loading' ? <Icons name="loading"></Icons> : 
                         imagePopUp == 'success' ?  <Images name="checklist"></Images>: 
                         imagePopUp == 'fail' ? <Images name="fail"></Images> : 
                         ''
-                    }                   
-                    <h3>{isSuccess.message}</h3>                    
-                    <div className={style.buttonWrapper}>
+                    }
+                    <div className={style2.message}>
+                        <h3>{isSuccess.message}</h3>                    
+                    </div>
+                    <div className={style2.buttonWrapper}>
                         {                            
                             imagePopUp == 'success' ?  <Link href='/login'>Login</Link> :
                             ''
                         }
                         {
                             imagePopUp == 'loading' ? '' :
-                            <button className={style.btnClose} onClick={handlerClose}>Close</button>  
+                            <button className={style2.btnClose} onClick={handlerClose}>Close</button>  
                         }
                     </div>              
                 </div>
