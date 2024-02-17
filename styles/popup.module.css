@@ -96,4 +96,9 @@
     border: 1px solid var(--hoveralert);
 }
 
+@media screen and (max-width: 670px){
+    .popupContainer{
+        width: 85%;
+    }
+}
 /* popup section end */

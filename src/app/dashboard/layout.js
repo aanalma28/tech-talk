@@ -38,8 +38,8 @@ export default function DashboardLayout({ children }) {
 
         window.addEventListener('resize', function(){
             if(this.window.innerWidth < 1000){
-                postsWrapper != null ? postsWrapper.style.paddingLeft = '0' : 0
-                dashboardWrapper != null ? dashboardWrapper.style.paddingLeft = '0' : 0
+                postsWrapper != null ? postsWrapper.style.paddingLeft = '15px' : 0
+                dashboardWrapper != null ? dashboardWrapper.style.paddingLeft = '15px' : 0
             }else{
                 postsWrapper != null ? postsWrapper.style.paddingLeft = '23%' : 0
                 dashboardWrapper != null ? dashboardWrapper.style.paddingLeft = '23%' : 0

@@ -22,6 +22,21 @@ export default function Posts(){
                     <Link href="">
                         <PostCard></PostCard>
                     </Link>
+                    <Link href="">
+                        <PostCard></PostCard>
+                    </Link>
+                    <Link href="">
+                        <PostCard></PostCard>
+                    </Link>
+                    <Link href="">
+                        <PostCard></PostCard>
+                    </Link>
+                    <Link href="">
+                        <PostCard></PostCard>
+                    </Link>
+                    <Link href="">
+                        <PostCard></PostCard>
+                    </Link>
                 </div>
             </div>
         </>
