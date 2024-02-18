@@ -115,9 +115,7 @@ export default function Create(){
             })
 
             const json = await response.json()
-            console.log(json)
-            console.log(json.success)                    
-            console.log(json.message)
+            console.log(json)            
 
             await json.success ? setImagePopUp('success') : setImagePopUp('fail')
             setIsSuccess({
@@ -176,7 +174,7 @@ export default function Create(){
                         ''
                     }
                     <div className={style2.message}>
-                        <h3>{isSuccess.message}</h3>                                        
+                        <h3>{isSuccess.message}</h3>                                                                
                     </div>                   
                     <div className={style2.buttonWrapper}>                        
                         {
