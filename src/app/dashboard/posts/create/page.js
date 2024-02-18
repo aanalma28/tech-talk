@@ -4,15 +4,15 @@ import style2 from '../../../../../styles/popup.module.css'
 import Input from "../../../../../components/input"
 import Textarea from "../../../../../components/textarea"
 import Icons from '../../../../../components/icons'
-import Link from 'next/link'
 import Images from '../../../../../components/imagesvg'
 import { useEffect, useState } from 'react'
 
 export default function Create(){
+    const [isFile, setIsFile] = useState()
     const [isShow, setIsShow] = useState(false)
     const [isSuccess, setIsSuccess] = useState({success: false, message: ''})
     const [imagePopUp, setImagePopUp] = useState('')
-
+    
     useEffect(() => {
         const file = document.getElementById('file')
         const labelFile = document.getElementById('label_file')
@@ -72,9 +72,7 @@ export default function Create(){
     const [isData, setIsData] = useState({
         title: '',
         desc: '',        
-    })
-
-    const [isFile, setIsFile] = useState()
+    })    
 
     const handleOnChangeTitle = (e) => {
         const input = e.target.value
@@ -105,7 +103,7 @@ export default function Create(){
 
         const formData = new FormData()
         formData.append('title', isData.title)
-        formData.append('desc', isData.desc)
+        formData.append('description', isData.desc)
         formData.append('file', isFile)
 
         console.log(...formData)
@@ -118,20 +116,28 @@ export default function Create(){
 
             const json = await response.json()
             console.log(json)
+            console.log(json.success)                    
+            console.log(json.message)
 
-            if(!json.success){
-                setIsSuccess({
-                    success: json.success,
-                    message: json.message
-                })
-                setImagePopUp('fail')
-            }else{
-                setIsSuccess({
-                    success: json.success,
-                    message: json.message
-                })
-                setImagePopUp('success')
-            }
+            await json.success ? setImagePopUp('success') : setImagePopUp('fail')
+            setIsSuccess({
+                success: json.success,
+                message: json.message
+            })
+
+            // if(!json.success){
+            //     setIsSuccess({
+            //         success: json.success,
+            //         message: json.message
+            //     })
+            //     setImagePopUp('fail')
+            // }else{
+            //     setIsSuccess({
+            //         success: json.success,
+            //         message: json.message
+            //     })
+            //     setImagePopUp('success')
+            // }                
         }catch(e){
             console.log(e)
             setIsSuccess({
@@ -139,6 +145,8 @@ export default function Create(){
                 message: e
             })
             setImagePopUp('fail')
+        }finally{
+
         }
     }
     return (
@@ -170,11 +178,7 @@ export default function Create(){
                     <div className={style2.message}>
                         <h3>{isSuccess.message}</h3>                                        
                     </div>                   
-                    <div className={style2.buttonWrapper}>
-                        {                            
-                            imagePopUp == 'success' ?  <Link href='/login'>Login</Link> :
-                            ''
-                        }
+                    <div className={style2.buttonWrapper}>                        
                         {
                             imagePopUp == 'loading' ? '' :
                             <button className={style2.btnClose} onClick={handlerClose}>Close</button>  

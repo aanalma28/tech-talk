@@ -114,19 +114,25 @@ export default function Register(){
             console.log(json)
             console.log(json.success)
 
-            if(!json.success){
-                setIsSuccess({
-                    success: json.success,
-                    message: json.message
-                })
-                setImagePopUp('fail')
-            }else{
-                setIsSuccess({
-                    success: json.success,
-                    message: json.message
-                })
-                setImagePopUp('success')
-            }
+            await json.success ? setImagePopUp('success') : setImagePopUp('fail')
+            setIsSuccess({
+                success: json.success,
+                message: json.message
+            })
+
+            // if(!json.success){
+            //     setIsSuccess({
+            //         success: json.success,
+            //         message: json.message
+            //     })
+            //     setImagePopUp('fail')
+            // }else{
+            //     setIsSuccess({
+            //         success: json.success,
+            //         message: json.message
+            //     })
+            //     setImagePopUp('success')
+            // }
         }
         catch(e){
             console.log(e)
