@@ -1,7 +1,9 @@
 import style from '../styles/skeleton.module.css'
+import Image from 'next/image'
+import Icons from './icons'
 
 export default function Skeleton(){
-    return(
+    return(        
         <div className={style.cardWrapper}>
             <Image src="/images/book.png" width={100} height={100}></Image>
             <div className={style.content}>

@@ -3,26 +3,25 @@ import style from '../../../../styles/posts.module.css'
 import Link from "next/link";
 import { cookies } from 'next/headers'
 import { Suspense } from "react";
+import Loading from "./loading";
 
-async function getData(email){
-    try{
-        const cookie = cookies()
-        const data = JSON.parse(cookie.get('data'))
-        console.log(data)
-        const response = await fetch(`/posts?email=${email}`)
-        
-        if(!response.status){
-            throw new Error('Failed to fetch data')
-        }
+async function getData(){
+    const cookie = cookies()
+    const data = cookie.get('data')
+    return data
+    // const response = await fetch(`/posts?email=${email}`)
+    
+    // if(!response.status){
+    //     throw new Error('Failed to fetch data')
+    // }
 
-        return response.json()
-    }catch(err){
-        throw new Error(err)
-    }
+    // return response.json()    
 }
 
-export default async function Posts(){    
+export default async function Posts(){
     const posts = await getData()
+    console.log(posts)    
+
     return (
         <>
             <div id="posts-wrapper" className={style.postsWrapper}>
@@ -31,7 +30,7 @@ export default async function Posts(){
                 </span>
                 <div className={style.postsCardWrapper}>
                     <Suspense fallback={<Loading />}>
-                        {posts ? posts.map((post) => {
+                        {/* {posts ? posts.map((post) => {
                             <Link href="">
                                 <PostCard 
                                     title={post.title} 
@@ -39,8 +38,9 @@ export default async function Posts(){
                                     imageUrl={post.image}
                                 />
                             </Link>
-                        }) : ''}
-                    </Suspense>
+                        }) : ''} */}
+                        <h3>Hello</h3>
+                    </Suspense>                    
                 </div>
             </div>
         </>

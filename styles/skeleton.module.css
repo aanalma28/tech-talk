@@ -1,3 +1,9 @@
+.skeletonWrapper{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 10px;
+}
+
 .cardWrapper{
     border: 1px solid var(--shadecolor);
     border-radius: 10px;
