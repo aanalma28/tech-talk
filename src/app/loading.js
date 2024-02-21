@@ -1,7 +1,7 @@
-import Skeleton from "../../../../components/skeleton"
-import style from '../../../../styles/skeleton.module.css'
+import Skeleton from "../../components/skeleton"
+import style from '../../styles/skeletonlandingpage.module.css'
 
-export default function SkeletonCard(){
+export default function Loading(){
     return (
         <div className={style.skeletonWrapper}>
             <div>

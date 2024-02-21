@@ -5,10 +5,21 @@ import Search from '../../components/search'
 import style from '../../styles/landingpage.module.css'
 import Image from 'next/image'
 import Link from 'next/link'
-import { useEffect } from 'react'
+import { Suspense, useEffect } from 'react'
 import Icons from '../../components/icons'
+import Loading from './loading'
 
-export default function Home() {
+async function getData(){
+  const res = await fetch('/posts')
+  
+  if(!res.status){
+    throw new Error('Failed to fetch data')
+  }
+  
+  return res.json()
+}
+
+export default async function Home() {
   useEffect(() => {
     const tech = document.getElementById('tech')
     const sci = document.getElementById('sci')
@@ -41,6 +52,10 @@ export default function Home() {
       }
     })
   })
+
+  const postsData = await getData()
+  console.log(postsData)
+
   return (
     <>
       <header className={style.header}>
@@ -94,12 +109,14 @@ export default function Home() {
               <Search page></Search>
             </div>
             <div className={style.contentWrapper}>
-                <PostCard></PostCard>
-                <PostCard></PostCard>
-                <PostCard></PostCard>
-                <PostCard></PostCard>
-                <PostCard></PostCard>
-                <PostCard></PostCard>
+              <Suspense fallback={<Loading />}/>
+              {postsData.length > 0 ? postsData.map((item, index) => {
+                return <PostCard 
+                  title={item.title} 
+                  description={item.description}
+                  imageSrc={item.image}
+                />
+              }) : ''}                
             </div>
           </div>
           <div className={style.contentRight}>

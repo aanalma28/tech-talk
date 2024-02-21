@@ -42,7 +42,7 @@ export default async function Posts(){
                     <Link href="/dashboard/posts/create">+ New</Link>
                 </span>
                 <div className={style.postsCardWrapper}>
-                    <Suspense fallback={<SkeletonCard />}>
+                    <Suspense fallback={<Loading />}>
                         {postData.length > 0 ? 
                             postData.map((item, index) => {
                                 return(

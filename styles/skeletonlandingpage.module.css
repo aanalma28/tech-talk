@@ -1,0 +1,5 @@
+.skeletonWrapper{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(50%, 1fr));
+    gap: 10px;
+}
