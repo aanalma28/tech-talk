@@ -9,20 +9,17 @@ async function getData(){
     const cookie = cookies()    
     const data = cookie.get('data') || {}        
     const parse = JSON.parse(data.value)
-    const email = parse.email
-
-    console.log(data)
-    console.log(email)
+    const user_id = parse.user_id
 
     if(!data){
         throw new Error('data tidak ada')
     }
 
-    if(!email){
+    if(!user_id){
         throw new Error('email tidak ada')
     }
     
-    const response = await fetch(`http://localhost:3000/posts?email=${email}`)
+    const response = await fetch(`http://localhost:3000/posts?user_id=${user_id}`)
     
     if(!response.status){
         throw new Error('Failed to fetch data')
@@ -40,8 +37,7 @@ export default async function Posts(){
     if(postData.length > 0 ){
         console.log(postData)
         postData.map((post) => {
-            console.log(post.title)
-            console.log(post.id)
+            console.log(post.title)            
         })
     }
 
