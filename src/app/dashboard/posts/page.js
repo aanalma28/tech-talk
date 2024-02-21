@@ -50,12 +50,12 @@ export default async function Posts(){
                                         <PostCard                                        
                                             title={item.title} 
                                             description={item.description}
-                                            imageSrc={item.image}
+                                            imageSrc={item.image}                                            
                                         />
                                     </Link>
                                 )
                             })                 
-                            : ''
+                            : null
                         }                                                                                                        
                     </Suspense>             
                 </div>
