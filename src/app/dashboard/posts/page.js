@@ -3,6 +3,7 @@ import style from '../../../../styles/posts.module.css'
 import Link from "next/link";
 import { cookies } from 'next/headers'
 import { Suspense } from "react";
+import SkeletonCard from "./skeletonCard";
 import Loading from "./loading";
 
 async function getData(){
@@ -29,17 +30,10 @@ async function getData(){
 }
 
 export default async function Posts(){
-    const posts = await getData()    
-    console.log(posts)
-
+    const posts = await getData()
     const postData = posts.data
-
-    if(postData.length > 0 ){
-        console.log(postData)
-        postData.map((post) => {
-            console.log(post.title)            
-        })
-    }
+    
+    console.log(postData)
 
     return (
         <>
@@ -48,20 +42,21 @@ export default async function Posts(){
                     <Link href="/dashboard/posts/create">+ New</Link>
                 </span>
                 <div className={style.postsCardWrapper}>
-                    <Suspense fallback={<Loading />}>
+                    <Suspense fallback={<SkeletonCard />}>
                         {postData.length > 0 ? 
-                            postData.map((post) => {
-                                // <Link href="">
-                                //     <PostCard 
-                                //         title={post.title} 
-                                //         description={post.description}
-                                //         imageSrc={post.image}
-                                //     />
-                                // </Link>
-                                <h3 key={post._id}>Hello</h3>
-                            })                            
+                            postData.map((item, index) => {
+                                return(
+                                    <Link href="" key={index}>
+                                        <PostCard                                        
+                                            title={item.title} 
+                                            description={item.description}
+                                            imageSrc={item.image}
+                                        />
+                                    </Link>
+                                )
+                            })                 
                             : ''
-                        }                          
+                        }                                                                                                        
                     </Suspense>             
                 </div>
             </div>
