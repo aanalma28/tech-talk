@@ -5,7 +5,7 @@ import Icons from './icons'
 export default function Skeleton(){
     return(        
         <div className={style.cardWrapper}>
-            <Image src="/images/book.png" width={100} height={100}></Image>
+            <div className={style.imageSkeleton}></div>
             <div className={style.content}>
                 <div className={style.skeletonTitle}></div>
                 <div className={style.skeletonDesc}></div>

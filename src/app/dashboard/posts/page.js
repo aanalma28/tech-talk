@@ -6,21 +6,44 @@ import { Suspense } from "react";
 import Loading from "./loading";
 
 async function getData(){
-    const cookie = cookies()
-    const data = cookie.get('data')
-    return data
-    // const response = await fetch(`/posts?email=${email}`)
-    
-    // if(!response.status){
-    //     throw new Error('Failed to fetch data')
-    // }
+    const cookie = cookies()    
+    const data = cookie.get('data') || {}        
+    const parse = JSON.parse(data.value)
+    const email = parse.email
 
-    // return response.json()    
+    console.log(data)
+    console.log(email)
+
+    if(!data){
+        throw new Error('data tidak ada')
+    }
+
+    if(!email){
+        throw new Error('email tidak ada')
+    }
+    
+    const response = await fetch(`http://localhost:3000/posts?email=${email}`)
+    
+    if(!response.status){
+        throw new Error('Failed to fetch data')
+    }
+
+    return response.json()    
 }
 
 export default async function Posts(){
-    const posts = await getData()
-    console.log(posts)    
+    const posts = await getData()    
+    console.log(posts)
+
+    const postData = posts.data
+
+    if(postData.length > 0 ){
+        console.log(postData)
+        postData.map((post) => {
+            console.log(post.title)
+            console.log(post.id)
+        })
+    }
 
     return (
         <>
@@ -30,17 +53,20 @@ export default async function Posts(){
                 </span>
                 <div className={style.postsCardWrapper}>
                     <Suspense fallback={<Loading />}>
-                        {/* {posts ? posts.map((post) => {
-                            <Link href="">
-                                <PostCard 
-                                    title={post.title} 
-                                    description={post.description}
-                                    imageUrl={post.image}
-                                />
-                            </Link>
-                        }) : ''} */}
-                        <h3>Hello</h3>
-                    </Suspense>                    
+                        {postData.length > 0 ? 
+                            postData.map((post) => {
+                                // <Link href="">
+                                //     <PostCard 
+                                //         title={post.title} 
+                                //         description={post.description}
+                                //         imageSrc={post.image}
+                                //     />
+                                // </Link>
+                                <h3 key={post._id}>Hello</h3>
+                            })                            
+                            : ''
+                        }                          
+                    </Suspense>             
                 </div>
             </div>
         </>

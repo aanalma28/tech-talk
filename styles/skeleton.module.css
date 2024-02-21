@@ -2,6 +2,10 @@
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 10px;
+    padding-left: 23%;
+    padding-top: 80px;
+    padding-right: 10px;
+    width: 100%;
 }
 
 .cardWrapper{
@@ -9,12 +13,13 @@
     border-radius: 10px;
 }
 
-.cardWrapper img{
+.imageSkeleton{
     border-top-right-radius: 10px;
     border-top-left-radius: 10px;
     width: 100%;
     height: 200px;
     object-fit: cover;
+    background-color: var(--shadecolor);
 }
 
 .content{
@@ -68,4 +73,10 @@
 
 .cardComments{
     width: 1.5rem;
+}
+
+@media screen and (max-width: 1000px){
+    .skeletonWrapper{
+        padding: 80px 15px 100px 15px;
+    }    
 }
