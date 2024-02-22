@@ -1,9 +1,13 @@
 import PostCard from '../../components/postcard'
 import { Suspense } from 'react'
-import Loading from './loading'
+// import Loading from './loading'
 
 async function getData(){
-  const res = await fetch('http://localhost:3000/getallposts')
+  const res = await fetch('http://localhost:3000/getallposts', 
+    {next: {
+      revalidate: 5      
+    }}
+  )
   
   if(!res.status){
     throw new Error('Failed to fetch data')
@@ -13,13 +17,13 @@ async function getData(){
 }
 
 export default async function Home() {
-  const postsData = await getData()
-  console.log(postsData)
+  const getPostsData = await getData()
+  const postsData = await getPostsData.data
 
   return (
     <>
-      <Suspense fallback={<Loading></Loading>}>
-        {postsData.data.length > 0 ? postsData.data.map((item, index) => {
+      <Suspense fallback={<h3>Sedang mengambil data</h3>}>        
+        {postsData.length > 0 ? postsData.map((item, index) => {
           return (
             <PostCard             
               title={item.title} 
