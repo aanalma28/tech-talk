@@ -5,7 +5,7 @@ import Icons from './icons'
 export default function PostCard({ title, description, imageSrc }) {
     return (
         <div className={style.cardWrapper}>
-            <Image src={`/uploads/${imageSrc}`} width={100} height={100}></Image>
+            <Image src={`/uploads/posts/${imageSrc}`} width={100} height={100}></Image>
             <div className={style.content}>
                 <h2>{title}</h2>
                 <p>{description}</p>

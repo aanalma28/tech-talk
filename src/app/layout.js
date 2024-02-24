@@ -1,45 +1,46 @@
+'use client'
+
 import Search from '../../components/search'
 import style from '../../styles/landingpage.module.css'
 import Image from 'next/image'
 import Link from 'next/link'
-// import { useEffect } from 'react'
-import { Suspense } from 'react'
+import { useEffect } from 'react'
 import Icons from '../../components/icons'
 import '../../styles/globals.css'
 
-export default function RootLayout({ children }) {
-  // useEffect(() => {
-  //   const tech = document.getElementById('tech')
-  //   const sci = document.getElementById('sci')
+export default function RootLayout({ children }) {  
+  useEffect(() => {
+    const tech = document.getElementById('tech')
+    const sci = document.getElementById('sci')
 
-  //   const spanTech = document.getElementById('span-technology')
-  //   const ulTech = document.getElementById('tech-list')
+    const spanTech = document.getElementById('span-technology')
+    const ulTech = document.getElementById('tech-list')
 
-  //   const spanSci = document.getElementById('span-science')
-  //   const ulSci = document.getElementById('sci-list')    
+    const spanSci = document.getElementById('span-science')
+    const ulSci = document.getElementById('sci-list')
 
-  //   spanTech.addEventListener('click', () => {
-  //     if (ulTech.style.display === "none") {
-  //       tech.style.transform = 'rotate(180deg)'
-  //       ulTech.style.display = "block"
-  //     }
-  //     else{
-  //       tech.style.transform = 'rotate(90deg)'
-  //       ulTech.style.display = "none"
-  //     }
-  //   })
+    spanTech.addEventListener('click', () => {
+      if (ulTech.style.display === "none") {
+        tech.style.transform = 'rotate(180deg)'
+        ulTech.style.display = "block"
+      }
+      else{
+        tech.style.transform = 'rotate(90deg)'
+        ulTech.style.display = "none"
+      }
+    })
     
-  //   spanSci.addEventListener('click', () => {
-  //     if (ulSci.style.display === "none") {
-  //       sci.style.transform = 'rotate(180deg)'
-  //       ulSci.style.display = "block"
-  //     }
-  //     else{
-  //       sci.style.transform = 'rotate(90deg)'
-  //       ulSci.style.display = "none"
-  //     }
-  //   })
-  // })
+    spanSci.addEventListener('click', () => {
+      if (ulSci.style.display === "none") {
+        sci.style.transform = 'rotate(180deg)'
+        ulSci.style.display = "block"
+      }
+      else{
+        sci.style.transform = 'rotate(90deg)'
+        ulSci.style.display = "none"
+      }
+    })
+  })
   return (
     <html lang="en">
       <head>

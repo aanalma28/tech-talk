@@ -9,7 +9,7 @@ export default function Sidebar(){
             <div className={style.containerSidebar}>
                 <ul className={style.ulSidebar}>
                     <a href="/dashboard/profile" className={style.profileSidebar} id="profile-sidebar">
-                        <Image src="/images/batikboy.png" width={60} height={60} className={style.profileImage}/>
+                        <Image src="/uploads/profile/default1.png" width={60} height={60}/>                       
                         <h3>LinkinPark</h3>
                     </a>                    
                     <div className={style.dividerSidebar}></div>

@@ -27,7 +27,7 @@ export default function BottomBar(){
             <ul className={style.bottomBar}>
                 <li>
                     <Link href="/profile">
-                        <Image src="/images/batikboy.png" width={50} height={50}></Image>            
+                        <Image src="/uploads/profile/default1.png" width={50} height={50}></Image>            
                     </Link>
                 </li>
                 <li>

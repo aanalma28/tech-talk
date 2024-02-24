@@ -45,8 +45,9 @@ export default async function Posts(){
                     <Suspense fallback={<Loading />}>
                         {postData.length > 0 ? 
                             postData.map((item, index) => {
+                                const link = `/dashboard/posts/${item.post_id}/edit`
                                 return(
-                                    <Link href="" key={index}>
+                                    <Link href={link} key={index}>
                                         <PostCard                                        
                                             title={item.title} 
                                             description={item.description}
