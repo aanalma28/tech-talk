@@ -8,7 +8,7 @@ export default function Dashboard(){
     const [data, setData] = useState({username: '', email: '', password: ''})
     useEffect(() => {
         const storeData = Cookies.get('data')
-        const parse = JSON.parse(storeData)      
+        const parse = JSON.parse(storeData)
 
         if(storeData){
             setData({
